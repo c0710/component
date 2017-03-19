@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>H5ComponentPolyline验证（折线图）</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #222;
+            font-size: 12px;
+        }
+        .iphone{
+            width: 340px;
+            height: 540px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:-270px 0 0 -170px;
+            background: #ccc;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentRadar.css">
+
+</head>
+<body>
+<!--用于开发H5ComponentPolyline（基本的雷达图组件）-->
+
+
+<div class="iphone"></div>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentRadar.js"></script>
+
+
+<script>
+    var cfg ={
+        type : 'Radar',
+        width : 400,
+        height : 400,
+       data:[
+           ['js',.9,'green'],
+           ['html/css',.8],
+           ['css3',.7],
+           ['html5',.6],
+           ['jQuery',.4]
+       ],
+        css : {
+            top:100,
+            opacity:0
+        },
+        center : true,
+        animateIn:{opacity:1,top:200},
+        animateOut:{opacity:0,top:100}
+    };
+    var Radar = new H5ComponentRadar('c_Radar',cfg);
+
+    $('.iphone').append(Radar);
+
+    var leave =true;
+    $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger(leave?'onLeave':'onLoad')
+    });
+
+
+
+</script>
+</body>
+</html>

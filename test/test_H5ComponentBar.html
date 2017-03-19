@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>H5ComponentBar验证（柱状图）</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #222;
+            font-size: 12px;
+        }
+        .iphone{
+            width: 340px;
+            height: 540px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:-270px 0 0 -170px;
+            background: #ffffff;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentBar.css">
+
+    <script src="../js/lib/jquery.js"></script>
+</head>
+<body>
+<!--用于开发H5ComponentPoint（基本的柱状图组件）-->
+
+
+<div class="iphone"></div>
+
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentBar.js"></script>
+
+<script>
+    var cfg ={
+        type : 'Bar',
+        width : 300,
+        height : 300,
+       data:[
+           ['javascript',.9,'green'],
+           ['html/css',.2,'yellow'],
+           ['css3',.1,'red'],
+           ['html5',.4,'blue'],
+           ['jQuery',.1,'pink']
+       ],
+        css : {
+            top:100,
+            opacity:1
+        },
+
+        animateIn:{opacity:1,top:200},
+        animateOut:{opacity:0,top:100},
+        center : true
+    };
+    var h5 = new H5ComponentBar('wangCheng',cfg);
+
+    $('.iphone').append(h5);
+
+    var leave =true;
+    $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger(leave?'onLeave':'onLoad')
+    });
+
+
+
+</script>
+</body>
+</html>

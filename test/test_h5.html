@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>test_h5</title>
+    <link rel="stylesheet" href="../css/test_H5.css">
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="../js/test_H5.js"></script>
+</head>
+<body>
+
+
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/lib/jquery-ui.js"></script>
+<script src="../js/lib/jquery.fullPage.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentPoint.js"></script>
+<script src="../js/test_H5.js"></script>
+
+<script>
+    $(function () {
+        var h5 = new H5();
+        h5
+        .addPage('face')
+            .addComponent('logo',{
+                text:'logo',
+                center:true,
+                width:400,
+                height:100,
+                css:{
+                    background:'#f00',
+                    top:50
+                }
+            })
+            .addComponent('slogan',{
+                text:'slogan',
+                center:true,
+                width:400,
+                height:300,
+                css:{
+                    background:'green',
+                    top:150,
+                    opacity:0
+                },
+                animateIn:{opacity:1},
+                animateOut:{opacity:0}
+            })
+            .addComponent('testPoint',{
+                type:'point',
+                text:'111222333',
+                width:300,
+                height:300,
+                data:[
+                    ['项目1',.4,'red'],
+                    ['项目2',.1,'green','130%','50%'],
+                    ['项目3',.1,'green','130%','50%'],
+                    ['项目4',.1,'green','130%','50%']
+
+                ],
+                center:true,
+                animateIn:{top:'60%'}
+            })
+        .addPage('desc')
+            .addComponent('caption',{
+                text:'核心理念',
+                center:true,
+                width:400,
+                height:300,
+                css:{
+                    background:'pink',
+                    top:100
+                }
+            })
+        .addPage('page-3')
+            .addComponent('caption',{
+                text:'课程分布指南',
+                center:true,
+                width:400,
+                height:300,
+                css:{
+                    background:'blue',
+                    top:300
+                }
+            })
+        .loader();
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+/*基本环图 组件样式*/
+.h5_component_Ring{
+}
+.h5_component_Ring canvas{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.h5_component_Ring .text{
+    position: absolute;
+    transition: all 1s;
+    width: 100%;
+    line-height:100%;
+    text-align: center;
+    top:30%;
+    -webkit-opacity:0;
+}
+.h5_component_Ring_load .text{
+    -webkit-transition: all 1s 1.5s;
+    -webkit-opacity:1;
+}
+.h5_component_Ring_leave .text{
+    -webkit-opacity:0;
+}

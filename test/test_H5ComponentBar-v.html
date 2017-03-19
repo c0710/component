@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>H5ComponentBar-v验证</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #222;
+            font-size: 12px;
+        }
+        .iphone{
+            width: 340px;
+            height: 540px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:-270px 0 0 -170px;
+            background: #ffffff;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentBar-v.css">
+
+
+</head>
+<body>
+<!--用于开发H5ComponentBar_v（垂直柱状图）-->
+
+
+<div class="iphone"></div>
+
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentBar-v.js"></script>
+<script>
+    var cfg ={
+        type : 'BarV',
+        width : 514,
+        height : 306,
+        data:[
+            ['js',0.5,'red'],
+            ['jQuery',0.2,'green'],
+            ['HTML',0.3,'yellow'],
+            ['css',1,'blue'],
+            ['bootstrap',0.9,'pink']
+
+        ],
+        css : {
+            top:100,
+            opacity:0
+        },
+        animateIn:{top:200,opacity:1},
+        animateOut:{top:100,opacity:0},
+        center : true
+
+    };
+    var BarV= new H5ComponentBarV('Bar_v',cfg);
+
+    $('.iphone').append(BarV);
+    var load = true;
+    $('body').click(function(){
+        load = !load;
+        $('.h5_component').trigger(load?'onLeave':'onLoad')
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>H5ComponentPie验证（饼图）</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #222;
+            font-size: 12px;
+        }
+        .iphone{
+            width: 340px;
+            height: 540px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:-270px 0 0 -170px;
+            background: #fff;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentPie.css">
+
+</head>
+<body>
+<!--用于开发H5ComponentPie（基本的雷达图组件）-->
+
+
+<div class="iphone"></div>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentPie.js"></script>
+
+
+<script>
+    var cfg ={
+        type : 'Pie',
+        width : 400,
+        height : 400,
+       data:[
+           ['js',.4,'green'],
+           ['html/css',.2,'yellow'],
+           ['css3',.05,'skyblue'],
+           ['html5',.2,'darkred'],
+           ['jQuery',.15,'purple']
+       ],
+        css : {
+            top:100,
+            opacity:1
+        },
+
+//        animateIn:{opacity:1,top:200},
+//        animateOut:{opacity:0,top:100},
+        center : true
+    };
+    var Pie = new H5ComponentPie('c_Pie',cfg);
+
+    $('.iphone').append(Pie);
+
+    var leave =true;
+    $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger(leave?'onLeave':'onLoad')
+    });
+
+
+
+</script>
+</body>
+</html>

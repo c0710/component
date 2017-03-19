@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>H5ComponentPoint验证（散点图）</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #222;
+            font-size: 12px;
+        }
+        .iphone{
+            width: 340px;
+            height: 540px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:-270px 0 0 -170px;
+            background: #ffffff;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentPoint.css">
+
+    <script src="../js/lib/jquery.js"></script>
+</head>
+<body>
+<!--用于开发H5ComponentPoint（基本的散点图组件）-->
+
+
+<div class="iphone"></div>
+
+<script src="../js/H5ComponentBase.js"></script>
+<script src="../js/H5ComponentPoint.js"></script>
+
+<script>
+    var cfg ={
+        type : 'Point',
+        width : 300,
+        height : 300,
+       data:[
+           ['A项',.3,'green'],
+           ['B项',.2,'yellow','-20%','-70%'],
+           ['C项',.1,'red','110%','-20%'],
+           ['D项',.4,'blue','-10%','120%'],
+           ['E项',.1,'pink','-10%','90%']
+       ],
+        css : {
+            bottom:'40%',
+            left:'20%',
+            opacity:0
+        },
+        center : true,
+        animateIn:{bottom:'50%',left:'50%',opacity:1},
+        animateOut:{bottom:'40%',left:'20%',opacity:0}
+    };
+    var h5 = new H5ComponentPoint('wang',cfg);
+
+    $('.iphone').append(h5);
+    $('.h5_component').trigger('onLoad');
+    var leave =false;
+    $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger(leave?'onLeave':'onLoad')
+    })
+
+</script>
+</body>
+</html>
